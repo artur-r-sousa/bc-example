@@ -14,7 +14,6 @@ const ProductInfo = () => {
 
     const dispatch = useDispatch();
     const items = useSelector((state) => state.products.state)
-    console.log(items)
     let { id } = useParams();
 
     useEffect(() => {
@@ -25,7 +24,7 @@ const ProductInfo = () => {
     return (
         <>
             {items.length > 0 ?
-                <StyledProdMain id={id}>
+                <StyledProdMain id={items.find(value => value.id == id).id}>
                     <StyledProdInternalGrid>
                         <StyledProdImg
                             src={items.find(value => value.id == id).photo_url}

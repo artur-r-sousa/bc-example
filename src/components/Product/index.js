@@ -24,10 +24,8 @@ const Product = () => {
                             <Link to={"/products/"+item.id}>
                                 <StyledProdTitle>{item.name}</StyledProdTitle>
                             </Link>
-
-                            <StyledProdInfo>Por apenas R$ {item.price.toFixed(2)}</StyledProdInfo>
+                            <StyledProdInfo> R$ {item.price.toFixed(2)}</StyledProdInfo>
                         </div>
-
                     </StyledProdInternalGrid>
                 </StyledProdMain>
             )
