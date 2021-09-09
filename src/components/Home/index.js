@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { StyledProdGrid, StyledTitle, StyledMainView } from "../../assets/css/styles";
 import GlobalStyle from '../../assets/fonts/fonts';
-
+import { ProductLoading } from "../../store/modules/exemple/actions";
 import Product from "../Product";
 
-const mockData = {
-    "id": 1,
-    "name": "Macaco Hidraulico 2 Ton Universal Tipo Jacarezinho C/ Maleta",
-    "price": 120,
-    "category": "Acessórios para veículos",
-    "description": "Macaco Hidráulico Jacaré 2 Toneladas Sparta Mtx",
-    "photo_url": "https://a-static.mlcdn.com.br/618x463/macaco-hidraulico-2-ton-universal-tipo-jacarezinho-c-maleta-sparta/ddmaquinas/46389/f7a5427327d1aefdcac158512aee3be9.jpg"
-}
-
 const Home = () => {
+
+    const dispatch = useDispatch();
+    const products = useSelector((state) => state.products)
+    useEffect(()=>{
+        dispatch(ProductLoading());
+    }, [])
+
+
     return (
         <>
             <GlobalStyle />
@@ -23,57 +23,29 @@ const Home = () => {
             </StyledMainView>
             
             <StyledProdGrid >
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
-                <Product
-                    id={mockData.id}
-                    name={mockData.name}
-                    price={mockData.price}
-                    category={mockData.category}
-                    description={mockData.description}
-                    photo_url={mockData.photo_url}
-                />
+                
+                {products.length > 0 ?
+                products.map(item => {
+                    
+                    return (
+                        <Product
+                            id={item.id}
+                            name={item.name}
+                            price={item.price}
+                            category={item.category}
+                            description={item.description}
+                            photo_url={item.photo_url}
+                        />
+                    )
+                })
+                    : <p>Loading</p>
+                }
+
             </StyledProdGrid>
         </>
     )
 };
+
+
 
 export default Home;

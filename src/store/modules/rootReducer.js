@@ -2,4 +2,4 @@ import { combineReducers } from 'redux';
 
 import exemple from './exemple/reducer';
 
-export default combineReducers({ exemple });
+export default combineReducers({  products: exemple });
