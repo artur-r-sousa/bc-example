@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
     StyledProdMain,
     StyledProdTitle,
@@ -6,26 +7,32 @@ import {
     StyledProdImg,
     StyledProdInternalGrid
 } from "../../assets/css/styles";
+import { Link } from "react-router-dom";
 
-const Product = ({ id, name, price, category, description, photo_url }) => {
+const Product = () => {
+
+    const items = useSelector((state) => state.products.state)
+  
     return (
-        <StyledProdMain id={id}>
-            <StyledProdInternalGrid>
-                <StyledProdImg
-                    src={photo_url}
-                />
-                <div>
-                    <StyledProdTitle>{name}</StyledProdTitle>
-                    <StyledProdInfo>Por apenas R$ {price},00</StyledProdInfo>
-                    <StyledProdInfo>Tipo {category}</StyledProdInfo>
-                    <div style={{margin: '10px'}}>
-                        Descrição
-                        <StyledProdInfo>{description}</StyledProdInfo>
-                    </div>
-                </div>
-                
-            </StyledProdInternalGrid>
-        </StyledProdMain>
+        items.map(item => {
+            return (
+                <StyledProdMain id={item.id}>
+                    <StyledProdInternalGrid>
+                        <StyledProdImg
+                            src={item.photo_url}
+                        />
+                        <div>
+                            <Link to={"/products/"+item.id}>
+                                <StyledProdTitle>{item.name}</StyledProdTitle>
+                            </Link>
+
+                            <StyledProdInfo>Por apenas R$ {item.price.toFixed(2)}</StyledProdInfo>
+                        </div>
+
+                    </StyledProdInternalGrid>
+                </StyledProdMain>
+            )
+        })
     )
 };
 

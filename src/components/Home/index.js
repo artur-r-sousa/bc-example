@@ -9,7 +9,6 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const items = useSelector((state) => state.products.state)
-    console.log(items)
     useEffect(()=>{
         dispatch(ProductLoading());
     }, [])
@@ -21,19 +20,8 @@ const Home = () => {
                 <StyledTitle>Kuppi</StyledTitle>
             </StyledMainView>          
             <StyledProdGrid >               
-                {items.length > 0 ?
-                items.map(item => {                    
-                    return (
-                        <Product
-                            id={item.id}
-                            name={item.name}
-                            price={item.price}
-                            category={item.category}
-                            description={item.description}
-                            photo_url={item.photo_url}
-                        />
-                    )
-                })
+                {items.length > 0 ?                   
+                        <Product/>
                     : <p>Loading</p>
                 }
             </StyledProdGrid>
