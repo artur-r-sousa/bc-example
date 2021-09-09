@@ -1,3 +1,25 @@
+# Teste Concluído
+
+### Considerações
+
+A listagem de itens e a rota de detalhes foram feitas conforme especificações, utilizando React, Redux, Immer, e modulos dos mesmos.
+
+**O que poderia melhorar?**
+
+Layout:
+    - principalmente no produto detalhado, pode ser aprimorado.
+    - Um estilo de "zebra" com cada item do grid assumindo uma cor, daria um tom mais dinamico à tela inicial
+    - Caso pudesse ser implementado, a opcao do usuario poder cadastrar mais produtos
+    - Um carrinho de compras que mostrasse o total de itens escolhidos. Muitos usuários gostam de passar tempo no site adicionando coisas ao carrinho antes de comprar, e isso
+        aumenta o tempo que passará no app, aumentando também as chances de uma compra maior.
+    
+Logica:
+    - Refatoramento de algumas funções para que nao existisse a necessidade de uso do hook useEffect.(Ele foi utilizado de inicio, assim como 'mockData', e não houve tempo ábil
+        para mudar, e testar com proficiência a solução)
+    
+
+
+
 # Teste de nível - Dev Junior
 
 **Obrigado por se candidatar para a vaga de Dev Junior na Kuppi.**
