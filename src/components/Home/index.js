@@ -8,25 +8,21 @@ import Product from "../Product";
 const Home = () => {
 
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.products)
+    const items = useSelector((state) => state.products.state)
+    console.log(items)
     useEffect(()=>{
         dispatch(ProductLoading());
     }, [])
 
-
     return (
         <>
             <GlobalStyle />
-
             <StyledMainView>
                 <StyledTitle>Kuppi</StyledTitle>
-            </StyledMainView>
-            
-            <StyledProdGrid >
-                
-                {products.length > 0 ?
-                products.map(item => {
-                    
+            </StyledMainView>          
+            <StyledProdGrid >               
+                {items.length > 0 ?
+                items.map(item => {                    
                     return (
                         <Product
                             id={item.id}
@@ -40,12 +36,9 @@ const Home = () => {
                 })
                     : <p>Loading</p>
                 }
-
             </StyledProdGrid>
         </>
     )
 };
-
-
 
 export default Home;
