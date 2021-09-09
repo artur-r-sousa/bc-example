@@ -10,7 +10,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Product = () => {
-
     const items = useSelector((state) => state.products.state)
   
     return (

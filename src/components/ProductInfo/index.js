@@ -41,11 +41,7 @@ const ProductInfo = () => {
                 </StyledProdMain>
                 : <p>Loading</p>
             }
-            
-
-
         </>
-
     )
 };
 

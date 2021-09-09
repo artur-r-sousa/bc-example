@@ -17,7 +17,6 @@ export const StyledTitle = styled.h1`
     font-family: 'UbuntuRegular';
 `
 
-
 //Products Styles
 
 export const StyledProdMain = styled.div`

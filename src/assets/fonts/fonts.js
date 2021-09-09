@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 import UbuntuRegular from './Ubuntu-Regular.ttf';
 
 export default createGlobalStyle`

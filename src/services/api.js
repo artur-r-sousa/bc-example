@@ -6,5 +6,4 @@ const api = axios.create({
     headers: {'auth-token':'IaUqWMozCH2E1kJssZ5GkjYw5FIWsBTCMunG6Isp3x7sROSTwJfflM458mQuOEYWfydEI3UrRWRYJRpDBoz5uATmmKuzGSgebAvd'}
 });
 
-
 export default api;
